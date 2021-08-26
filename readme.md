@@ -41,3 +41,33 @@ En .eslintignore.json
 node_modules
 dist
 ```
+
+install husky
+
+```node
+npm install -D husky@4
+ 
+npm install -D husky
+```
+y creo .huskyrc.json
+
+```json
+{
+  "hooks":{
+    "pre-commit":"lint-staged"
+  }
+}
+```
+
+`npm i -D lint-staged`
+
+creo .lintstagedrc.json
+
+```json
+{
+  "*.ts":[
+    "eslint 'src/**' --fix",
+    "git add"
+  ]
+}
+```
