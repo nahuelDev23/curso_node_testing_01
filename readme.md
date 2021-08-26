@@ -71,3 +71,54 @@ creo .lintstagedrc.json
   ]
 }
 ```
+
+instalar jest 
+
+`npm i -D jest  @types/jest ts-jest`
+
+si instla asi inicio asi 
+`node_modules/.bin/jest --init.`
+
+sino lo instalo de manera global
+`npm install -g jest`
+
+pero tira este error
+```
+Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/jest'
+npm ERR!  [Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/jest'] {
+npm ERR!   errno: -13,
+npm ERR!   code: 'EACCES',
+npm ERR!   syscall: 'mkdir',
+npm ERR!   path: '/usr/local/lib/node_modules/jest'
+npm ERR! }
+```
+
+respuestas jest
+```
+
+✔ Would you like to use Jest when running "test" script in "package.json"? … yes
+✔ Would you like to use Typescript for the configuration file? … yes
+✔ Choose the test environment that will be used for testing › node
+✔ Do you want Jest to add coverage reports? … yes
+✔ Which provider should be used to instrument code for coverage? › v8
+✔ Automatically clear mock calls and instances between every test? … no
+```
+
+tsconfig.json
+
+```json
+export default {
+  roots: ['<rootDir>/src'],
+  collectCoverage: true,
+  collectCoverageFrom: ['<rootDir>/src/***/*.ts'],
+  coverageDirectory: 'coverage',
+  coverageProvider: 'v8',
+  testEnvironment: 'node',
+  transform: {
+    '.+\\.ts$': 'ts-jest'
+  }
+}
+```
+`npm ts-node`
+
+`npm test` para correr test
